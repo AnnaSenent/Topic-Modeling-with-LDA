@@ -3,9 +3,7 @@ import numpy as np
 import pandas as pd
 
 import gensim
-import gensim.corpora as corpora
 from gensim.utils import simple_preprocess
-from gensim.models import CoherenceModel
 from gensim.parsing.preprocessing import STOPWORDS
 
 import spacy
@@ -15,8 +13,10 @@ stopwords = STOPWORDS.union({'from', 'subject', 're', 'edu', 'use'})
 
 def preprocess(text):
 
+    prep_text = str(text).lower()
+
     # Remove emails
-    prep_text = re.sub('\S*@\S*\s?', '', str(text))
+    prep_text = re.sub('\S*@\S*\s?', '', prep_text)
 
     # Replace multiple spaces with a single space
     prep_text = re.sub('\s+', ' ', prep_text)
@@ -30,7 +30,7 @@ def preprocess(text):
 
     return prep_text
 
-def lemmatize(text, pos_tags=['NOUN', 'ADJ', 'VERB', 'ADV']):
+def lemmatize(text, pos_tags):
 
     nlp = spacy.load('en_core_web_sm', disable=['parser', 'ner'])
 
