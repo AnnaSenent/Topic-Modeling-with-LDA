@@ -1,7 +1,6 @@
 import re
 import numpy as np
 import pandas as pd
-from pprint import pprint
 
 import gensim
 import gensim.corpora as corpora
@@ -10,12 +9,7 @@ from gensim.models import CoherenceModel
 from gensim.parsing.preprocessing import STOPWORDS
 
 import spacy
-from spacy.lang.en import English
 from time import time
-
-import pyLDAvis
-import pyLDAvis.gensim_models
-import matplotlib.pyplot as plt
 
 stopwords = STOPWORDS.union({'from', 'subject', 're', 'edu', 'use'})
 
@@ -36,11 +30,9 @@ def preprocess(text):
 
     return prep_text
 
-# Bigram and Trigram models
-
 def lemmatize(text, pos_tags=['NOUN', 'ADJ', 'VERB', 'ADV']):
 
-    nlp = spacy.load('en_core_web_sm')
+    nlp = spacy.load('en_core_web_sm', disable=['parser', 'ner'])
 
     lemmatized_text = [token.lemma_ for token in nlp(text) if token.pos_ in pos_tags]
 
