@@ -1,4 +1,4 @@
-from utils import *
+from utils import preprocess, lemmatize
 
 data = pd.read_csv('data\dataset.csv')
 
@@ -12,7 +12,7 @@ data.content = data.content.apply(lambda x: preprocess(x))
 # Lemmatize
 data.content = data.content.apply(lambda x: lemmatize(' '.join(x), ['NOUN', 'ADJ', 'VERB', 'ADV']))
 
-print('It took: {} mins'.format(round((time() - t) / 60, 2))) # It took: 165.31 mins
+print('It took: {} mins'.format(round((time() - t) / 60, 2)))
 
 data.to_csv('data\clean_dataset.csv', index=False)
 

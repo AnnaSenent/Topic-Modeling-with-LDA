@@ -5,6 +5,9 @@ import pandas as pd
 import gensim
 from gensim.utils import simple_preprocess
 from gensim.parsing.preprocessing import STOPWORDS
+from gensim import models
+from gensim.test.utils import datapath
+from gensim.models import CoherenceModel
 
 import spacy
 from time import time
@@ -37,3 +40,25 @@ def lemmatize(text, pos_tags):
     lemmatized_text = [token.lemma_ for token in nlp(text) if token.pos_ in pos_tags]
 
     return lemmatized_text
+
+def lda_model(data, corpus, dictionary, topics):
+
+    # Build the model
+    model = gensim.models.LdaMulticore(corpus=corpus,
+                                       id2word=dictionary,
+                                       num_topics=topics,
+                                       random_state=100,
+                                       workers=3,
+                                       chunksize=100,
+                                       passes=50,
+                                       # alpha='auto',
+                                       per_word_topics=True)
+
+    # Compute perplexity
+    perplexity = model.log_perplexity(corpus)
+
+    # Compute coherence score
+    coherence_model = CoherenceModel(model=model, texts=data, dictionary=dictionary, coherence='c_v')
+    coherence_score = coherence_model.get_coherence()
+
+    return model, perplexity, coherence_score
