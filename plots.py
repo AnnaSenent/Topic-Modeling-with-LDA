@@ -38,7 +38,7 @@ bow_model = gensim.models.LdaMulticore.load(r'models\bow_model.model')
 tfidf_model = gensim.models.LdaMulticore.load(r'models\tfidf_model.model')
 
 vis1 = pyLDAvis.gensim_models.prepare(bow_model, bow_corpus, counts_to_words)
-pyLDAvis.save_html(vis1, r'figures\bow.html')
+pyLDAvis.save_html(vis1, r'docs\bow.html')
 
 vis2 = pyLDAvis.gensim_models.prepare(tfidf_model, corpus_tfidf, counts_to_words)
-pyLDAvis.save_html(vis2, r'figures\tfidf.html')
+pyLDAvis.save_html(vis2, r'docs\tfidf.html')
