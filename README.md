@@ -21,13 +21,15 @@ These topics generate words based on their probability distribution. LDA will al
 
 ### Dataset
 
-I used the [20 newsgroups](http://qwone.com/~jason/20Newsgroups/) dataset. In the script () I prepare the dataset for later use.
+I used the [20 newsgroups](http://qwone.com/~jason/20Newsgroups/) dataset. In the script prepare_dataset.py I prepare the dataset for later use.
 
 ### Preprocessing
 
-Using the functions preprocess and lemmatize from the script (), I cleaned the text and created a new csv file in ()
+Using the functions _preprocess_ and _lemmatize_ from the script utils.py, I cleaned the text and created a new csv file in preprocessing.py.
 
 ### Building the LDA models
+
+I created the function lda_model (utils.py), which 
 
 ### Perplexity and coherence scores
 
