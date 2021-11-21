@@ -36,6 +36,6 @@ I created the function lda_model in the script utils.py to build the LDA model a
 ### Visualizing the topics and top words per topic
 
 In the script plots.py I created an interactive plot to display the topics and top words per topic using pyLDAvis.
-![bow](figures\bow.gif)
+![](bow.gif)
 
 ### Resources
