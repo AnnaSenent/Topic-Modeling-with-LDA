@@ -11,7 +11,9 @@ LDA is based on two assumptions:
 - Documents are produced from a mixture of topics
 - Topics are a mixture of words
 
-These topics generate words based on their probability distribution. LDA will also assume that the every chunk of text it is fed will contain words that are related at some level. We can therefore estimate which topics would have generated a given document and which words would have generated a given topic, since the goal is to obtain the most optimized document-topic distribution and topic-word distribution.
+These topics generate words based on their probability distribution.
+
+LDA will also assume that the every chunk of text it is fed will contain words that are related at some level. We can therefore estimate which topics would have generated a given document and which words would have generated a given topic, since the goal is to obtain the most optimized document-topic distribution and topic-word distribution.
 
 ## Libraries Used
 
@@ -25,16 +27,14 @@ I used the [20 newsgroups](http://qwone.com/~jason/20Newsgroups/) dataset. In th
 
 ### Preprocessing
 
-Using the functions _preprocess_ and _lemmatize_ from the script utils.py, I cleaned the text and created a new csv file in preprocessing.py.
+Using the functions _preprocess_ and _lemmatize_ from the script [utils.py](https://github.com/AnnaSenent/Topic-Modeling-with-LDA/blob/main/utils.py), I cleaned the text and created a new csv file in [preprocessing.py](https://github.com/AnnaSenent/Topic-Modeling-with-LDA/blob/main/preprocessing.py).
 
 ### Building the LDA models
 
-I created the function lda_model (utils.py), which 
-
-### Perplexity and coherence scores
-
-The model with the tf-idf vectors achieved a slightly better performance than the one with the Bag-of-words format.
+I created the function lda_model in the script utils.py to build the LDA model and compute the perplexity and the coherence score. To do this, I used Bag-of-words vectors and tf-idf vectors and compared the results. The model with the tf-idf vectors achieved a better performance than the one with the Bag-of-words format.
 
 ### Visualizing the topics and top words per topic
+
+In the script plots.py I created an interactive plot to display the topics and top words per topic using pyLDAvis.
 
 ### Resources
