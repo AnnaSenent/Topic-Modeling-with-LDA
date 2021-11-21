@@ -10,7 +10,7 @@ import pyLDAvis.gensim_models
 import matplotlib.pyplot as plt
 
 import warnings
-warnings.filterwarnings("ignore",category=DeprecationWarning)
+warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 data = pd.read_csv('data\clean_dataset.csv')
 
@@ -37,6 +37,7 @@ corpus_tfidf = list(map(lambda x: tfidf[x], bow_corpus))
 bow_model = gensim.models.LdaMulticore.load(r'models\bow_model.model')
 tfidf_model = gensim.models.LdaMulticore.load(r'models\tfidf_model.model')
 
+# Plot
 vis1 = pyLDAvis.gensim_models.prepare(bow_model, bow_corpus, counts_to_words)
 pyLDAvis.save_html(vis1, r'docs\bow.html')
 
