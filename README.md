@@ -36,6 +36,18 @@ I created the function lda_model in the script utils.py to build the LDA model a
 ### Visualizing the topics and top words per topic
 
 In the script plots.py I created an interactive plot to display the topics and top words per topic using pyLDAvis.
+
+Here you can see a caption of the interactive plot for the Bag-of-words model.
+
 ![](bow.gif)
+
+The way to interpret this is:
+
+Each circle represents a topic. The larger the circle, the higher the number of documents about that topic.
+Red bars represent the number of times a word was generated for a given topic, as estimated by the model.
+Blue bars correspond to the frequency of a word in the entire corpus. The overall frequency of the most frequent words is displayed when no circle (topic) is selected.
+Distance among the topics indicates the degree of relatedness.
+
+For example, as shown in the gif, topics 7 and 2 have been estimated to be very similar. Their top words are "gun, right, law, people, state" and "people, year, president, state, mr" respectively. Therefore, these topics are likely to be about politics.
 
 ### Resources
