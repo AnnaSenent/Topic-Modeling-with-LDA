@@ -51,3 +51,7 @@ Distance among the topics indicates the degree of relatedness.
 For example, as shown in the gif, topics 7 and 2 have been estimated to be very similar. Their top words are "gun, right, law, people, state" and "people, year, president, state, mr" respectively. Therefore, these topics are likely to be about politics.
 
 ### Resources
+
+- [Topic Modeling with Gensim (Python)](https://www.machinelearningplus.com/nlp/topic-modeling-gensim-python/)
+- [Beginners Guide to Topic Modeling in Python](https://www.analyticsvidhya.com/blog/2016/08/beginners-guide-to-topic-modeling-in-python/)
+- [Topic Modelling With LDA -A Hands-on Introduction](https://www.analyticsvidhya.com/blog/2021/07/topic-modelling-with-lda-a-hands-on-introduction/)
